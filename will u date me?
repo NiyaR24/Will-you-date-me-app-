@@ -22,7 +22,7 @@ $label.ForeColor = "White"
 
 # 3. "YES" button
 $btnYes = New-Object System.Windows.Forms.Button
-$btnYes.Text = "Yes! 😍"
+$btnYes.Text = "Yes! <3"
 $btnYes.Size = New-Object System.Drawing.Size(100, 40)
 $btnYes.Location = New-Object System.Drawing.Point(60, 130)
 $btnYes.Font = New-Object System.Drawing.Font("Segoe UI", 10)
@@ -38,7 +38,7 @@ $btnYes.Add_Click({
 
 # 4. "NO" button
 $btnNo = New-Object System.Windows.Forms.Button
-$btnNo.Text = "No 😢"
+$btnNo.Text = "No </3"
 $btnNo.Size = New-Object System.Drawing.Size(100, 40)
 $btnNo.Location = New-Object System.Drawing.Point(220, 130)
 $btnNo.Font = New-Object System.Drawing.Font("Segoe UI", 10)

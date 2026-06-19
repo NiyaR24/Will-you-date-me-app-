@@ -1,0 +1,58 @@
+# load visual components
+Add-Type -AssemblyName PresentationFramework
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+
+# 1. main Popup Window 
+$form = New-Object System.Windows.Forms.Form
+$form.Text = "I have a quick question ❤️"
+$form.Size = New-Object System.Drawing.Size(350,250)
+$form.StartPosition = "CenterScreen"
+$form.BackColor = "Red" 
+$form.FormBorderStyle = "FixedDialog"
+$form.MaximizeBox = $false
+
+# 2. fixing labels so its visible
+$label = New-Object System.Windows.Forms.Label
+$label.Text = "Will you go on a date with me this weekend?"
+$label.Font = New-Object System.Drawing.Font("Segoe UI", 12, [System.Drawing.FontStyle]::Bold)
+$label.Size = New-Object System.Drawing.Size(360, 50)
+$label.Location = New-Object System.Drawing.Point(20, 40)
+$label.ForeColor = "White" 
+
+# 3. "YES" button
+$btnYes = New-Object System.Windows.Forms.Button
+$btnYes.Text = "Yes! 😍"
+$btnYes.Size = New-Object System.Drawing.Size(100, 40)
+$btnYes.Location = New-Object System.Drawing.Point(60, 130)
+$btnYes.Font = New-Object System.Drawing.Font("Segoe UI", 10)
+$btnYes.BackColor = "Pink"
+
+# action when "YES" is clicked
+$btnYes.Add_Click({
+    [System.Windows.Forms.MessageBox]::Show("Hell Yes, Let's go to Cafe Rebound at 5. 🥰", "Success!")
+    [console]::Beep(523, 300) 
+    [console]::Beep(659, 300)
+    $form.Close()
+})
+
+# 4. "NO" button
+$btnNo = New-Object System.Windows.Forms.Button
+$btnNo.Text = "No 😢"
+$btnNo.Size = New-Object System.Drawing.Size(100, 40)
+$btnNo.Location = New-Object System.Drawing.Point(220, 130)
+$btnNo.Font = New-Object System.Drawing.Font("Segoe UI", 10)
+$btnNo.BackColor = "LightGray"
+
+# action when "NO" is clicked
+$btnNo.Add_Click({
+    [System.Windows.Forms.MessageBox]::Show("No is not an option. Please try the other button. 😉")
+})
+
+# Creating the app window
+$form.Controls.Add($label)
+$form.Controls.Add($btnYes)
+$form.Controls.Add($btnNo)
+
+# Launch the app
+$form.ShowDialog() | Out-Null
